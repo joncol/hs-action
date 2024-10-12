@@ -8,75 +8,74 @@ author:          Jonas Collberg
 maintainer:      Jonas Collberg <jonas.collberg@gmail.com>
 copyright:       2024 Jonas Collberg
 tested-with:     GHC ==9.6.3
-extra-doc-files:
-    README.md
+extra-doc-files: README.md
+category:        Application
+description:     some description of the package
+synopsis:        one-line synopsis
 
--- category:
--- description:     description
--- synopsis:        one-line synopsis
 -- homepage:        https://github.com/FIXME/hs-action#readme
 -- source-repository head
 --   type:     git
 --   location: git://github.com/FIXME/hs-action.git
 
 common common-options
-    build-depends:      base >=4.9 && <5
-    default-language:   Haskell2010
-    default-extensions:
-        NoFieldSelectors
-        DuplicateRecordFields
-        ImportQualifiedPost
-        LambdaCase
-        OverloadedLabels
-        OverloadedStrings
-        ScopedTypeVariables
+  build-depends:      base >=4.9 && <5
+  default-language:   Haskell2010
+  default-extensions:
+    DuplicateRecordFields
+    ImportQualifiedPost
+    LambdaCase
+    NoFieldSelectors
+    OverloadedLabels
+    OverloadedStrings
+    ScopedTypeVariables
 
-    ghc-options:
-        -Wall -Wcompat -Widentities -Wincomplete-record-updates
-        -Wincomplete-uni-patterns -Wpartial-fields
-        -Wprepositive-qualified-module -Wredundant-constraints
-        -fdefer-typed-holes -fhide-source-paths
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wpartial-fields
+    -Wprepositive-qualified-module -Wredundant-constraints
+    -fdefer-typed-holes -fhide-source-paths
 
 library
-    import:          common-options
-    hs-source-dirs:  src
-    exposed-modules: Lib
-    build-depends:
-        , containers
-        , mtl
-        , text
+  import:          common-options
+  hs-source-dirs:  src
+  exposed-modules: Lib
+  build-depends:
+    , containers  >=0.6.7 && <0.7
+    , mtl         >=2.3.1 && <2.4
+    , text        >=2.0.2 && <2.1
 
 executable hs-action-exe
-    import:         common-options
-    hs-source-dirs: app
-    main-is:        Main.hs
-    build-depends:  hs-action
-    ghc-options:    -threaded -rtsopts -with-rtsopts=-N
+  import:         common-options
+  hs-source-dirs: app
+  main-is:        Main.hs
+  build-depends:  hs-action
+  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
 
 test-suite hs-action-test
-    import:         common-options
-    type:           exitcode-stdio-1.0
-    hs-source-dirs: test
-    main-is:        Driver.hs
-    build-depends:
-        , hspec
-        , hs-action
-        , tasty
-        , tasty-hspec
-        , tasty-hunit
-        , tasty-quickcheck
-        , tasty-smallcheck
+  import:         common-options
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Driver.hs
+  build-depends:
+    , hs-action
+    , hspec
+    , tasty
+    , tasty-hspec
+    , tasty-hunit
+    , tasty-quickcheck
+    , tasty-smallcheck
 
-    ghc-options:
-        -threaded -rtsopts -with-rtsopts=-N -Wno-missing-home-modules
+  ghc-options:
+    -threaded -rtsopts -with-rtsopts=-N -Wno-missing-home-modules
 
 benchmark hs-action-bench
-    import:         common-options
-    type:           exitcode-stdio-1.0
-    hs-source-dirs: bench
-    main-is:        Main.hs
-    build-depends:
-        , criterion
-        , hs-action
+  import:         common-options
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: bench
+  main-is:        Main.hs
+  build-depends:
+    , criterion
+    , hs-action
 
-    ghc-options:    -threaded -rtsopts -with-rtsopts=-N
+  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
