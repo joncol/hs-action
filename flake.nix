@@ -32,7 +32,7 @@
               };
 
               # Non-Haskell shell tools.
-              buildInputs = with pkgs; [ ];
+              buildInputs = with pkgs; [ haskell-ci ];
             };
           };
         };
