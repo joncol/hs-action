@@ -66,6 +66,7 @@ test-suite hs-action-test
     , tasty-quickcheck
     , tasty-smallcheck
 
+  build-tool-depends: tasty-discover:tasty-discover
   ghc-options:
     -threaded -rtsopts -with-rtsopts=-N -Wno-missing-home-modules
 

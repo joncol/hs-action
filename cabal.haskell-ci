@@ -1,5 +1,4 @@
 distribution: jammy
-apt: tasty-discover
 tests: True
 run-tests: True
 benchmarks: False
