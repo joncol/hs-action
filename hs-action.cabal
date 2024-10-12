@@ -1,0 +1,83 @@
+cabal-version:   3.8
+name:            hs-action
+version:         0
+license:         BSD-3-Clause
+build-type:      Simple
+license-file:    LICENSE
+author:          Jonas Collberg
+maintainer:      Jonas Collberg <jonas.collberg@gmail.com>
+copyright:       2024 Jonas Collberg
+tested-with:     GHC ==9.6.6
+extra-doc-files:
+    CHANGELOG.md
+    README.md
+
+-- category:
+-- description:     description
+-- synopsis:        one-line synopsis
+-- homepage:        https://github.com/FIXME/hs-action#readme
+-- source-repository head
+--   type:     git
+--   location: git://github.com/FIXME/hs-action.git
+
+common common-options
+    build-depends:      base >=4.9 && <5
+    default-language:   Haskell2010
+    default-extensions:
+        NoFieldSelectors
+        DuplicateRecordFields
+        ImportQualifiedPost
+        LambdaCase
+        OverloadedLabels
+        OverloadedStrings
+        ScopedTypeVariables
+
+    ghc-options:
+        -Wall -Wcompat -Widentities -Wincomplete-record-updates
+        -Wincomplete-uni-patterns -Wpartial-fields
+        -Wprepositive-qualified-module -Wredundant-constraints
+        -fdefer-typed-holes -fhide-source-paths
+
+library
+    import:          common-options
+    hs-source-dirs:  src
+    exposed-modules: Lib
+    build-depends:
+        , containers
+        , mtl
+        , text
+
+executable hs-action-exe
+    import:         common-options
+    hs-source-dirs: app
+    main-is:        Main.hs
+    build-depends:  hs-action
+    ghc-options:    -threaded -rtsopts -with-rtsopts=-N
+
+test-suite hs-action-test
+    import:         common-options
+    type:           exitcode-stdio-1.0
+    hs-source-dirs: test
+    main-is:        Driver.hs
+    build-depends:
+        , hspec
+        , hs-action
+        , tasty
+        , tasty-hspec
+        , tasty-hunit
+        , tasty-quickcheck
+        , tasty-smallcheck
+
+    ghc-options:
+        -threaded -rtsopts -with-rtsopts=-N -Wno-missing-home-modules
+
+benchmark hs-action-bench
+    import:         common-options
+    type:           exitcode-stdio-1.0
+    hs-source-dirs: bench
+    main-is:        Main.hs
+    build-depends:
+        , criterion
+        , hs-action
+
+    ghc-options:    -threaded -rtsopts -with-rtsopts=-N

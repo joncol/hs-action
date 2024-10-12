@@ -1,0 +1,5 @@
+packages:
+  ./
+
+package hs-action
+  tests: True
