@@ -11,7 +11,7 @@ import Test.Tasty.QuickCheck
 
 -- HUnit test case
 unit_listCompare :: IO ()
-unit_listCompare = [1, 2, 3] `compare` [1,2] @?= GT
+unit_listCompare = [1, 2, 3] `compare` [1,2] @?= LT
 
 -- QuickCheck property
 prop_additionCommutative :: Int -> Int -> Bool
