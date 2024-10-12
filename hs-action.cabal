@@ -9,7 +9,6 @@ maintainer:      Jonas Collberg <jonas.collberg@gmail.com>
 copyright:       2024 Jonas Collberg
 tested-with:     GHC ==9.6.3
 extra-doc-files:
-    CHANGELOG.md
     README.md
 
 -- category:
