@@ -1,1 +1,2 @@
-distribution:   jammy
+distribution: jammy
+apt: tasty-discover
