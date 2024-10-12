@@ -1,49 +1,20 @@
-# Template for Haskell + Nix projects
+[![Build Status](https://github.com/joncol/hs-action/workflows/Haskell-CI/badge.svg)](https://github.com/joncol/hs-action/actions?query=workflow%3AHaskell-CI)
 
-More or less copied from <https://github.com/jonascarpay/template-haskell>, with
-some changes to reflect my personal preferences.
+* hs-action
+Testing GitHub CI actions for Haskell.
 
-Uses IOHK's [haskell.nix](https://github.com/input-output-hk/haskell.nix) to
-set up an environment containing `ghc`, `cabal`, `hoogle`, `ghcid`, `fourmolu`,
-and `haskell-language-server`.
+* Building and running
+To build and run the project, use:
+```bash
+nix run .#hs-action:exe:hs-action-exe
+```
 
-# Usage
+To just build the project, use:
+```bash
+nix build
+```
 
-First, clone this repository:
-
-    git clone https://gitlab.com/joncol/hs-template <my-project>
-
-Then run the wizard script:
-
-    cd <my-project>
-    ./wizard.sh
-
-# Building your project
-
-Build your project either by running:
-
-    nix-build
-
-Or via `cabal`:
-
-    cabal build
-
-
-# Running your project
-
-Show the outputs of your flake by running:
-
-    nix flake show --option allow-import-from-derivation true
-
-Run the wanted app via:
-
-    nix run .#<app>
-
-For example, if the name of your app is `hello:exe:hello-exe`, you can start it
-with:
-
-    nix run .#hello:exe:hello-exe
-
-Of course, you can also use `cabal` for this:
-
-    cabal run hello-exe
+To show all Flake outputs, you can use:
+```bash
+nix flake show --option allow-import-from-derivation true
+```
