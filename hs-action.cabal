@@ -56,17 +56,14 @@ test-suite hs-action-test
   import:         common-options
   type:           exitcode-stdio-1.0
   hs-source-dirs: test
-  main-is:        Driver.hs
+  main-is:        TestMain.hs
   build-depends:
     , hs-action
     , hspec
     , tasty
     , tasty-hspec
-    , tasty-hunit
     , tasty-quickcheck
-    , tasty-smallcheck
 
-  build-tool-depends: tasty-discover:tasty-discover
   ghc-options:
     -threaded -rtsopts -with-rtsopts=-N -Wno-missing-home-modules
 

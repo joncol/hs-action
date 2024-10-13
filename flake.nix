@@ -28,7 +28,6 @@
                 };
                 hlint = { };
                 hoogle = { };
-                tasty-discover = { };
               };
 
               # Non-Haskell shell tools.
