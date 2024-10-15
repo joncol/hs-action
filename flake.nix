@@ -19,13 +19,10 @@
                 cabal-fmt = { };
                 fourmolu = { };
                 ghcid = { };
-                haskell-language-server = {
-                  version = "latest";
-                  # Disable unnecessary plugins, some of which cause compilation
-                  # errors.
-                  configureArgs =
-                    "-f-floskell -f-fourmolu -f-ormolu -f-stylishhaskell -f-brittany";
-                };
+
+                implicit-hie = { };
+                haskell-language-server.src =
+                  pkgs.haskell-nix.sources."hls-2.9";
                 hlint = { };
                 hoogle = { };
               };
