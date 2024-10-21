@@ -32,9 +32,8 @@ common common-options
 
   ghc-options:
     -Wall -Wcompat -Widentities -Wincomplete-record-updates
-    -Wincomplete-uni-patterns -Wpartial-fields
-    -Wprepositive-qualified-module -Wredundant-constraints
-    -fdefer-typed-holes -fhide-source-paths
+    -Wincomplete-uni-patterns -Wpartial-fields -Wprepositive-qualified-module
+    -Wredundant-constraints -fdefer-typed-holes -fhide-source-paths
 
 library
   import:          common-options
