@@ -21,8 +21,11 @@
                 ghcid = { };
 
                 implicit-hie = { };
-                haskell-language-server.src =
-                  pkgs.haskell-nix.sources."hls-2.9";
+                haskell-language-server = {
+                  src = pkgs.haskell-nix.sources."hls-2.9";
+                  configureArgs =
+                    "-f-floskell -f-fourmolu -f-ormolu -f-stylishhaskell -f-brittany -f-stan";
+                };
                 hlint = { };
                 hoogle = { };
               };
